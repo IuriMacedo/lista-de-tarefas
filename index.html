@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu2VwPJnqfIzH91JcpYldCkOx-sdfQOsOyjg&usqp=CAU">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:::Lista de Tarefas:::</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: burlywood;
+            background-image: url(https://cdn.pixabay.com/photo/2013/07/12/18/30/jot-153411_640.png);
+            background-repeat: no-repeat;
+            background-position: 420px 0px;
+        }
+
+        @font-face {
+            font-family: f1;
+            src: url(fonte/Akira\ Expanded\ Demo.otf);
+        }
+
+        @font-face {
+            font-family: f2;
+            src: url(fonte/coolvetica\ rg\ it.otf);
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-top: 125px;
+            font-family: f1;
+            font-size: 25px;
+        }
+
+        .droga {
+            font-size: 15px;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        input {
+            font-size: 15px;
+            margin-left: 515px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        ul {
+            flex-wrap: wrap;
+            margin-left: 500px;
+            margin-top: 50px;
+            font-family: f2;
+            font-size: 25px;
+        }
+
+        footer {
+            font-size: 25px;
+            margin-left: 450px;
+            font-family: f2;
+            margin-top: 340px;
+            position: fixed;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Lista de Tarefas</h1>
+    <input type="text" id="taskInput" placeholder="Digite uma Tarefa">
+    <button onclick="addTask()" class="droga">Adicionar Tarefa</button>
+
+    <ul id="taskList">
+        <script>
+            function addTask() {
+                var taskInput = document.getElementById("taskInput");
+                var taskText = taskInput.value.trim();
+
+                if (taskText !== "") {
+                    var taskList = document.getElementById("taskList");
+                    var li = document.createElement("li");
+                    li.className = "taskItem";
+                    li.innerHTML = taskText + '<button onclick="removeTask(this)">Remover</button>';
+                    taskList.appendChild(li);
+                    taskInput.value = "";
+                } else {
+                    alert("Por favor, insira uma tarefa válida.");
+
+                }
+            }
+
+            function removeTask(button) {
+                var li = button.parentNode;
+                var ul = li.parentNode;
+                ul.removeChild(li);
+            }
+
+        </script>
+
+    </ul>
+
+</body>
+
+<footer>
+    <u><b>Programado por Iuri Macedo| Turma C| 2024</b></u>
+</footer>
+
+</html>
